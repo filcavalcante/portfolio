@@ -1,0 +1,50 @@
+/* Compontents */
+
+.form-group {
+    flex: 1 1 32rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 1.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    border: none;
+    background: transparent;
+    backdrop-filter: blur(0.4rem);
+    padding: 1.5rem 2rem;
+    width: 100%;
+    font-size: 3rem;
+    outline: none;
+    border: 0.2rem solid rgba(255, 255, 255, .2);
+    border-radius: 4rem;
+    color: var(--white-color);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    box-shadow: 0 0 1.5rem 1.5rem #9400D3;
+}
+
+.form-group button {
+    border: 0.2rem solid rgba(255, 255, 255, .2);
+    box-shadow: 0 0 0.1rem rgba(255, 255, 255, .1);
+    background: var(--white-color);
+    border-radius: 4rem;
+    color: #333;
+    padding: 1.5rem 2rem;
+    font-size: 3rem;
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+}
+
+.form-group button:hover {
+    background: var(--white-color);
+    box-shadow: 0 0 1.5rem 1.5rem #9400D3;
+}
+
+.form-group ::placeholder {
+    color: var(--white-color);
+}

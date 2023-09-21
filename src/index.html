@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filipe Cavalcante Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,700&family=Ubuntu:ital,wght@0,300;0,700;1,700&display=swap">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/class.css">
+    <link rel="stylesheet" href="./assets/css/menu.css">
+    <link rel="stylesheet" href="./assets/css/components.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
+    <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
+</head>
+
+<body>
+
+    <!-- Botão para fechamento do menu -->
+    <input id="close-menu" class="close-menu" type="checkbox" aria-label="Close menu" role="button" aria-pressed="true">
+    <label class="close-menu-label" for="close-menu" title="close menu"></label>
+
+    <!-- Logo e menu de navegação -->
+    <aside class="menu white-bg">
+        <div class="main-menu menu-content">
+            <h1>
+                <a id="logo" href="#home" class="scroll-link">
+                    <img src="./assets/img/logo.png" alt="logo personalizada da minha página" onclick="toggleMenu()">
+                </a>
+            </h1>
+            <nav>
+                <ul id="menu-list">
+                    <li><a class="nav-link" href="#home">home</a></li>
+                    <li><a class="nav-link" href="#perfil">perfil</a></li>
+                    <li><a class="nav-link" href="#habilidades">habilidades</a></li>
+                    <li><a class="nav-link" href="#projetos">projetos</a></li>
+                    <li><a class="nav-link" href="#contato">contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </aside>
+
+    <!-- Div para espaçamento entre o menu/seção home -->
+    <div class="menu-spacing"></div>
+
+    <!-- Seção do home -->
+    <section id="home" class="intro white-bg section active-section">
+        <div class="main-content intro-content">
+            <div class="intro-text-content">
+                <h2>Olá, sou Filipe Cavalcante.</h2>
+                <p>Bem vindo ao meu portfólio! Sou desenvolvedor frontend. Neste perfil, poderão ver minhas habilidades atuais e meus projetos onde aplico o conhecimento aprendido com melhoria contínua e foco na experiência do usuário.</p>
+                <div class="social-icons">
+                    <a href="https://github.com/filcavalcante?tab=repositories" target="_blank"><i class='bx bxl-github bx-tada' style='color:#800080'></i></a>
+                    <a href="https://www.linkedin.com/in/filipe-cavalcante-76673828a/" target="_blank"><i class='bx bxl-linkedin-square bx-tada' style='color:#800080'></i></a>
+                </div>
+            </div>
+            <div class="intro-img">
+                <img src="./assets/img/programing.svg" alt="foto pessoal onde estou usando camisa, jaqueta e calça nas cores preta e tênis branco, em um parque sentado num banco de madeira com um lago atrás">
+            </div>
+        </div>
+        <div>
+            <img id="rolldrop-button" src="./assets/img/down-arrow.svg" alt="imagem de uma flecha para nevegação, indicando para baixo.">
+        </div>
+        <div class="rolldrop-content">
+        </div>
+    </section>
+
+    <!-- Seção do perfil -->
+    <section id="perfil" class="intro-bg section">
+        <div class="main-content intro-content">
+            <div class="intro-text-content">
+                <h2>Sobre mim</h2>
+                <p>Atualmente curso Análise e Desenvolvimento de Sistemas e estudo para me tornar um desenvolvedor web.</p>
+                <p>Sou uma pessoa confiável, esforçado, observador, muito detalhista, gosto de trabalhar em equipe e prezo sempre pela qualidade.</p>
+                <p>Sou analista de sistemas e atuo como analista de testes desde 01/2021, e agora, estou me aventurando no desenvolvimento, utilizando as habilidades adquiridas como Analista QA para melhorar a experiência do usuário.</p>
+            </div>
+            <div class="intro-img">
+                <img src="./assets/img/profile.jpeg" alt="foto pessoal onde estou usando camisa, jaqueta e calça nas cores preta e tênis branco, em um parque sentado num banco de madeira com um lago atrás">
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção das habilidades -->
+    <section id="habilidades" class="grid-one white-bg section">
+        <div class="main-content grid-one-content">
+            <h2 class="grid-main-heading">Habilidades</h2>
+            <p class="grid-description">Uma breve descrição.</p>
+            
+            <div class="grid">
+                <article>
+                    <h3>Teste 1</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium deserunt cum quisquam, asperiores aut pariatur sunt doloribus dolor aliquam omnis laborum nemo, similique sint earum alias. Aliquid voluptatem odio quam!</p>
+                </article>
+                <article>
+                    <h3>Teste 2</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium deserunt cum quisquam, asperiores aut pariatur sunt doloribus dolor aliquam omnis laborum nemo, similique sint earum alias. Aliquid voluptatem odio quam!</p>
+                </article>
+                <article>
+                    <h3>Teste 3</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium deserunt cum quisquam, asperiores aut pariatur sunt doloribus dolor aliquam omnis laborum nemo, similique sint earum alias. Aliquid voluptatem odio quam!</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção da galeria de projetos -->
+    <section id="projetos" class="grid-one white-bg section">
+        <div class="main-content grid-one-content">
+            <h2 class="grid-main-heading">Projetos</h2>
+            <p class="grid-description">Uma breve descrição.</p>
+            
+            <div class="grid">
+                <div class="gallery-img">
+                    <img src="http://source.unsplash.com/random/360x360?r=1" alt="random image from unsplash">
+                </div>
+                <div class="gallery-img">
+                    <img src="http://source.unsplash.com/random/360x360?r=2" alt="random image from unsplash">
+                </div>
+                <div class="gallery-img">
+                    <img src="http://source.unsplash.com/random/360x360?r=3" alt="random image from unsplash">
+                </div>
+                <div class="gallery-img">
+                    <img src="http://source.unsplash.com/random/360x360?r=4" alt="random image from unsplash">
+                </div>
+                <div class="gallery-img">
+                    <img src="http://source.unsplash.com/random/360x360?r=5" alt="random image from unsplash">
+                </div>
+                <div class="gallery-img">
+                    <img src="http://source.unsplash.com/random/360x360?r=6" alt="random image from unsplash">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Seção de Contato -->
+    <section id="contato" class="intro intro-bg section">
+        <div class="main-content intro-content">
+            <div class="intro-text-content">
+                <h2>January brings us Firefox 85</h2>
+                <p>To wrap up January, we are proud to bring you the release of Firefox 85. In this version we are bringing you
+                    support for the :focus-visible pseudo-class in CSS and associated devtools, and the complete removal of Flash
+                    support from Firefox.</p>
+            </div>
+            <div class="intro-img">
+                <img src="./assets/img/javascript.svg" alt="Um desenho de um homem segurando uma logo de CSS, outro desenho de uma mulher empurrando uma logo de JavaScript e um desenho de um homem apoiando uma logo de Html">
+            </div>
+            <div class="contact-form">
+                <fieldset class="form-grid">
+                    <legend>Contact me</legend>
+                    <div class="form-group">
+                        <label for="first-name">First name</label>
+                        <input type="text" name="first-name" id="first-name" placeholder="Your name" autocomplete="given-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="last-name">Last name</label>
+                        <input type="text" name="last-name" id="last-name" placeholder="Your last name" autocomplete="family-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="text" name="email" id="email" placeholder="Your email" autocomplete="email">
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="message">Message</label>
+                        <textarea name="message" id="message" cols="30" rows="10" placeholder="Your message" autocomplete="on"></textarea>
+                    </div>
+                    <div class="form-group full-width">
+                        <button type="submit">Send message</button>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé da página -->
+    <footer id="footer" class="footer white-bg">
+        <p><a rel="nofollow" target="_blank" href="https://github.com/filcavalcante?tab=repositories">Feito com <span class="heart">❤</span> por Filipe Cavalcante</a></p>
+    </footer>
+
+    <!-- Ícone/Botão para subir ao topo da página -->
+    <a href="#home" class="back-to-top scroll-link">➔</a>
+
+    <!-- Scripts do JS -->
+    <script src="./assets/js/responsive.js"></script>
+</body>
+</html>
