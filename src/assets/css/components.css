@@ -12,28 +12,28 @@
 .form-group input,
 .form-group textarea {
     border: none;
-    background: transparent;
-    backdrop-filter: blur(0.4rem);
     padding: 1.5rem 2rem;
     width: 100%;
+    height: 50%;
     font-size: 3rem;
     outline: none;
-    border: 0.2rem solid rgba(255, 255, 255, .2);
+    border: 0.2rem solid rgba(255, 255, 255, 0.2);
     border-radius: 4rem;
-    color: var(--white-color);
+    color: var(--primary-color);
+    margin-right: 0;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
-    box-shadow: 0 0 1.5rem 1.5rem #9400D3;
+    box-shadow: 0 0 0.3rem 0.3rem #800080;
 }
 
 .form-group button {
     border: 0.2rem solid rgba(255, 255, 255, .2);
     box-shadow: 0 0 0.1rem rgba(255, 255, 255, .1);
-    background: var(--white-color);
+    background-color: #4ca1f5;
     border-radius: 4rem;
-    color: #333;
+    color: var(--primary-color);
     padding: 1.5rem 2rem;
     font-size: 3rem;
     cursor: pointer;
@@ -41,10 +41,9 @@
 }
 
 .form-group button:hover {
-    background: var(--white-color);
-    box-shadow: 0 0 1.5rem 1.5rem #9400D3;
+    box-shadow: 0 0 0.3rem 0.3rem #800080;
 }
 
 .form-group ::placeholder {
-    color: var(--white-color);
+    color: var(--primary-color);
 }
