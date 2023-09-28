@@ -1,0 +1,82 @@
+.grid-skills {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
+}
+
+.card-skills {
+    background: transparent;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 10px 1px #000000ee;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    height: 400px;
+}
+
+.card-skills img {
+    width: 70%;
+    max-height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+.card-skills:hover img {
+    max-height: 0;
+}
+
+.card-skills:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+}
+
+.skills-content {
+    transform: rotateX(-90deg);
+    transform-origin: bottom;
+}
+
+.card-skills:hover .skills-content {
+    transform: rotateX(0deg);
+}
+
+.card-skills:hover .skills-content {
+    max-height: 100%;
+}
+
+.card-description {
+    margin: 0;
+    padding-top: 2rem;
+    font-size: 1.6rem;
+    color: var(--primary-color);
+    font-weight: 300;
+}
+
+.card-title {
+    margin: 0;
+    padding-top: 3.5rem;
+    color: var(--primary-color);
+}
+
+.card-skills:hover img {
+    scale: 0;
+}
+
+.skills-content {
+    margin: 10px 0 0;
+    font-size: 1.4rem;
+    color: #777;
+    line-height: 1.4;
+}
+
+.grid-tecnologies {
+    padding: 3rem 0 3rem 0;
+}
+
+.grid-heading-skills {
+    padding: 3rem 0 3rem 0;
+}

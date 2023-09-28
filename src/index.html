@@ -12,23 +12,22 @@
     <link rel="stylesheet" href="./assets/css/menu.css">
     <link rel="stylesheet" href="./assets/css/components.css">
     <link rel="stylesheet" href="./assets/css/responsive.css">
+    <link rel="stylesheet" href="./assets/css/skills.css">
     <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
 </head>
 
 <body>
 
-    <!-- Botão para fechamento do menu -->
+    <!-- Botão para fechamento do menu responsivo -->
     <input id="close-menu" class="close-menu" type="checkbox" aria-label="Close menu" role="button" aria-pressed="true">
     <label class="close-menu-label" for="close-menu" title="close menu"></label>
 
     <!-- Logo e menu de navegação -->
     <aside class="menu white-bg">
         <div class="main-menu menu-content">
-            <h1>
-                <a id="logo" href="#home" class="scroll-link">
-                    <img src="./assets/img/logo.png" alt="logo personalizada da minha página" onclick="toggleMenu()">
-                </a>
-            </h1>
+            <a id="logo" href="#home" class="scroll-link">
+                <img src="./assets/img/logo.png" alt="logo personalizada da minha página" onclick="toggleMenu()">
+            </a>
             <nav>
                 <ul id="menu-list">
                     <li><a class="nav-link" href="#home">Home</a></li>
@@ -48,19 +47,20 @@
     <section id="home" class="intro white-bg section active-section">
         <div class="main-content intro-content">
             <div class="intro-text-content">
-                <h2>Olá, sou Filipe Cavalcante.</h2>
-                <p>Bem vindo ao meu portfólio! Sou desenvolvedor frontend. Neste perfil, poderão ver minhas habilidades atuais e meus projetos onde aplico o conhecimento aprendido com melhoria contínua e foco na experiência do usuário.</p>
+                <h1>Olá, sou Filipe Cavalcante.</h1>
+                <p>Bem vindo ao meu portfólio! Sou desenvolvedor frontend.</p>
+                <p>Neste perfil, poderão ver minhas habilidades atuais e meus projetos onde aplico o conhecimento aprendido com melhoria contínua e foco na experiência do usuário.</p>
                 <div class="social-icons">
                     <a href="https://github.com/filcavalcante?tab=repositories" target="_blank"><i class='bx bxl-github bx-tada' style='color:#800080'></i></a>
                     <a href="https://www.linkedin.com/in/filipe-cavalcante-76673828a/" target="_blank"><i class='bx bxl-linkedin-square bx-tada' style='color:#800080'></i></a>
                 </div>
             </div>
             <div class="intro-img">
-                <img src="./assets/img/programing.svg" alt="foto pessoal onde estou usando camisa, jaqueta e calça nas cores preta e tênis branco, em um parque sentado num banco de madeira com um lago atrás">
+                <img src="./assets/img/programing.svg" alt="">
             </div>
         </div>
         <div>
-            <img id="rolldrop-button" src="./assets/img/down-arrow.svg" alt="imagem de uma flecha para nevegação, indicando para baixo.">
+            <img id="rolldrop-button" src="./assets/img/down-arrow.svg" alt="Ícone de uma flecha para nevegação, indicando para baixo.">
         </div>
         <div class="rolldrop-content">
         </div>
@@ -82,24 +82,64 @@
     </section>
 
     <!-- Seção das habilidades -->
-    <section id="habilidades" class="grid-one white-bg section">
-        <div class="main-content grid-one-content">
-            <h2 class="grid-main-heading">Habilidades</h2>
-            <p class="grid-description">Uma breve descrição.</p>
-            
-            <div class="grid">
-                <article>
-                    <h3>Teste 1</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium deserunt cum quisquam, asperiores aut pariatur sunt doloribus dolor aliquam omnis laborum nemo, similique sint earum alias. Aliquid voluptatem odio quam!</p>
-                </article>
-                <article>
-                    <h3>Teste 2</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium deserunt cum quisquam, asperiores aut pariatur sunt doloribus dolor aliquam omnis laborum nemo, similique sint earum alias. Aliquid voluptatem odio quam!</p>
-                </article>
-                <article>
-                    <h3>Teste 3</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium deserunt cum quisquam, asperiores aut pariatur sunt doloribus dolor aliquam omnis laborum nemo, similique sint earum alias. Aliquid voluptatem odio quam!</p>
-                </article>
+    <section id="habilidades" class="skills-bg section">
+        <div class="main-content grid-skills-content">
+            <h2 class="grid-heading-skills">Habilidades</h2>
+            <p class="grid-tecnologies">Tecnologias conhecidas:</p>
+            <div class="grid-skills">
+                <div class="card-skills">
+                    <img id="img-html" src="./assets/img/bxl-html5.svg" alt="Logo da linguagem HTML">
+                    <div class="skills-content">
+                        <h3 class="card-title">Html</h3>
+                        <p class="card-description">É uma linguagem baseada em marcação, o que significa que você utiliza tags (etiquetas) para envolver partes específicas do conteúdo, dando-lhes significado e estrutura.</p>
+                    </div>
+                </div>
+                <div class="card-skills">
+                    <img id="img-css" src="./assets/img/bxl-css3.svg" alt="Logo da linguagem CSS">
+                    <div class="skills-content">
+                        <h3 class="card-title">Css</h3>
+                        <p class="card-description">É uma linguagem de estilo utilizada para controlar a apresentação e o layout de documentos HTML.</p>
+                        <p class="card-description">A principal finalidade do CSS é separar o conteúdo (HTML) da apresentação (estilo), o que permite um maior controle e flexibilidade no design de páginas da web.</p>
+                    </div>
+                </div>
+                <div class="card-skills">
+                    <img id="img-bootstrap" src="./assets/img/bxl-bootstrap.svg" alt="Logo do framework Bootstrap">
+                    <div class="skills-content">
+                        <h3 class="card-title">Bootstrap</h3>
+                        <p class="card-description">É um dos frameworks de design de código aberto mais populares para o desenvolvimento de interfaces de usuário (UI) responsivas e estilizadas para sites e aplicativos da web. </p>
+                    </div>
+                </div>
+                <div class="card-skills">
+                    <img id="img-javascript" src="./assets/img/bxl-javascript.svg" alt="Logo da linguagem Javascript">
+                    <div class="skills-content">
+                        <h3 class="card-title">Javascript</h3>
+                        <p class="card-description">É uma linguagem de programação amplamente usada para desenvolvimento web e é uma das tecnologias fundamentais da internet.</p>
+                        <p class="card-description">Permite que os desenvolvedores adicionem interatividade, comportamento dinâmico e funcionalidades avançadas às páginas da web.</p>
+                    </div>
+                </div>
+                <div class="card-skills">
+                    <img id="img-jquery" src="./assets/img/bxl-jquery.svg" alt="Logo da biblioteca JQuery">
+                    <div class="skills-content">
+                        <h3 class="card-title">JQuery</h3>
+                        <p class="card-description">É uma biblioteca JavaScript rápida, concisa e de alto nível que simplifica a interação com documentos HTML.</p>
+                        <p class="card-description">Foi criada para facilitar o desenvolvimento de páginas web interativas e é amplamente usada na indústria de desenvolvimento web.</p>
+                    </div>
+                </div>
+                <div class="card-skills">
+                    <img id="img-node" src="./assets/img/bxl-nodejs.svg" alt="Logo da plataforma de desenvolvimento Noje.js">
+                    <div class="skills-content">
+                        <h3 class="card-title">Node.js</h3>
+                        <p class="card-description">É uma plataforma de desenvolvimento de aplicativos de código aberto que permite aos desenvolvedores criar aplicativos de servidor e de rede altamente escaláveis usando JavaScript. O Node.js é projetado para ser executado no lado do servidor. </p>
+                    </div>
+                </div>
+                <div class="card-skills">
+                    <img id="img-git" src="./assets/img/bxl-git.svg" alt="Logo do Git e GitHub para sistema de controle de versão e hospedagem de repositórios Git baseada na web">
+                    <div class="skills-content">
+                        <h3 class="card-title">Git e GitHub</h3>
+                        <p class="card-title">Git é um sistema de controle de versão distribuído amplamente utilizado para rastrear e gerenciar as mudanças no código fonte de um projeto de software.</p>
+                        <p class="card-title">GitHub é uma plataforma de hospedagem de repositórios Git baseada na web que oferece serviços de colaboração e gerenciamento de código.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -109,7 +149,6 @@
         <div class="main-content grid-one-content">
             <h2 class="grid-main-heading">Projetos</h2>
             <p class="grid-description">Uma breve descrição.</p>
-            
             <div class="grid">
                 <div class="gallery-img">
                     <img src="http://source.unsplash.com/random/360x360?r=1" alt="random image from unsplash">
@@ -149,7 +188,7 @@
                     </div>
                     <div class="form-group">
                         <label for="telefone">Telefone:</label>
-                        <input type="number" name="telefone" id="telefone" placeholder="Seu telefone" autocomplete="cc-number">
+                        <input type="number" name="telefone" id="telefone" placeholder="Seu telefone" autocomplete="on">
                     </div>
                     <div class="form-group">
                         <label for="email">E-mail:</label>

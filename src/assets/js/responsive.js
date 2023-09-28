@@ -1,3 +1,7 @@
+const SCROLL_OFFSET = -65;
+const MOBILE_SCROLL_OFFSET = 0;
+const MOBILE_BREAKPOINT = 768;
+
 // Função para o menu sanduíche
 function toggleMenu() {
     const checkbox = document.getElementById('close-menu');
@@ -8,11 +12,10 @@ function toggleMenu() {
 
 // Função para movimentar corretamente o scroll
 function scrollToElement(elementId) {
-    console.log(`Scrolling to element: ${elementId}`);
     const element = document.getElementById(elementId);
 
     if (element) {
-        const yOffset = -65;
+        const yOffset = SCROLL_OFFSET;
         const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
         window.scrollTo({ top: y, behavior: 'smooth' });
 
@@ -62,7 +65,7 @@ function scrollToNextSection() {
         }
 
         if (nextSection) {
-            const yOffset = window.innerWidth > 768 ? -65 : 0;
+            const yOffset = window.innerWidth > MOBILE_BREAKPOINT ? SCROLL_OFFSET : MOBILE_SCROLL_OFFSET;
             const currentSectionRect = currentSection.getBoundingClientRect();
             const nextSectionRect = nextSection.getBoundingClientRect();
 
@@ -105,7 +108,6 @@ function scrollToNextSection() {
 // Seleciona o menu de navegação "Home" quando o botão "back-to-top" é clicado
 backToTopLink.addEventListener('click', function (event) {
     event.preventDefault();
-    console.log("Back to top link clicked.");
     scrollToElement('home');
 });
 
@@ -113,26 +115,16 @@ backToTopLink.addEventListener('click', function (event) {
 const rolldropButton = document.getElementById('rolldrop-button');
 if (rolldropButton) {
     rolldropButton.addEventListener('click', () => {
-        console.log('Rolldrop button clicked');
         scrollToNextSection();
-
-        // Remova a classe "active" de todos os itens do menu
-        menuItems.forEach((menuItem) => {
-            menuItem.classList.remove("active");
-        });
-
-        // Adicione a classe "active" apenas ao item de menu correspondente à seção atual
-        menuItems[activeSectionIndex].classList.add("active");
     });
 }
 
 // Adiciona um evento de clique para cada item de menu, mas apenas em telas maiores que 768px (web)
 menuItems.forEach((menuItem) => {
     menuItem.addEventListener('click', function (event) {
-        if (window.innerWidth > 768) {
+        if (window.innerWidth > MOBILE_BREAKPOINT) {
             event.preventDefault(); // Impede o comportamento padrão de navegação
             const targetId = this.getAttribute('href').substring(1); // Obtém o ID do destino sem o #
-            console.log(`Menu item clicked: ${targetId}`);
             scrollToElement(targetId);
         }
 
@@ -147,14 +139,12 @@ menuItems.forEach((menuItem) => {
 // Adiciona o comportamento de rolagem ao botão "back-to-top"
 backToTopLink.addEventListener('click', function (event) {
     event.preventDefault();
-    console.log("Back to top link clicked.");
     scrollToElement('home');
 });
 
 // Adiciona o comportamento de rolagem ao link da logo
 logoLink.addEventListener('click', function (event) {
     event.preventDefault();
-    console.log("Logo link clicked.");
     scrollToElement('home');
 
     // Remova a classe "active" de todos os itens do menu
@@ -207,6 +197,7 @@ function checkRolldropButton() {
 // Chama a função para verificar o botão rolldrop inicialmente
 checkRolldropButton();
 
+// Event listener para o evento de rolagem da janela
 window.addEventListener('scroll', () => {
     if (allowScroll) {
         sections.forEach((section, index) => {
@@ -219,6 +210,13 @@ window.addEventListener('scroll', () => {
                 checkRolldropButton();
             }
         });
+
+        // Verifique a exibição do botão "Back-to-Top"
+        if (sections[activeSectionIndex].id === 'home') {
+            backToTopLink.style.display = 'none'; // Oculta o botão na seção "Home"
+        } else {
+            backToTopLink.style.display = 'block'; // Exibe o botão em outras seções
+        }
     }
 });
 
@@ -245,7 +243,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
 // Seleciona o menu "Home" quando o botão "back-to-top" é clicado
 backToTopLink.addEventListener('click', function (event) {
     event.preventDefault();
-    console.log("Back to top link clicked.");
     scrollToElement('home');
 
     // Remove a classe "active" de todos os links de menu e adiciona-a ao link "Home"
@@ -257,7 +254,35 @@ backToTopLink.addEventListener('click', function (event) {
 
 // Função para verificar a seção visível ao recarregar a página
 function checkVisibleSectionOnLoad() {
-    const yOffset = -65;
+    const yOffset = SCROLL_OFFSET;
+    let targetSectionIndex = -1;
+
+    sections.forEach((section, index) => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top + yOffset <= 0 && rect.bottom + yOffset >= 0) {
+            targetSectionIndex = index;
+        }
+    });
+
+    if (targetSectionIndex !== -1) {
+        // Verifique se a seção visível ao carregar é a "home" e oculte o botão "back-to-top"
+        if (sections[targetSectionIndex].id === 'home') {
+            backToTopLink.style.display = 'none';
+        } else {
+            backToTopLink.style.display = 'block';
+        }
+
+        menuItems.forEach((menuItem, index) => {
+            menuItem.classList.remove("active");
+        });
+
+        menuItems[targetSectionIndex].classList.add("active");
+    }
+}
+
+// Função para verificar a seção visível ao rolar a página
+function checkVisibleSectionOnScroll() {
+    const yOffset = SCROLL_OFFSET;
     let targetSectionIndex = -1;
 
     sections.forEach((section, index) => {
@@ -273,8 +298,52 @@ function checkVisibleSectionOnLoad() {
         });
 
         menuItems[targetSectionIndex].classList.add("active");
+
+        // Verifique se a seção visível ao rolar é diferente de "home" e exiba o botão "back-to-top"
+        if (sections[targetSectionIndex].id !== 'home') {
+            backToTopLink.style.display = 'block';
+        } else {
+            backToTopLink.style.display = 'none';
+        }
     }
 }
 
+// Adicione um event listener para o evento de rolagem da janela
+window.addEventListener('scroll', () => {
+    checkVisibleSectionOnScroll();
+});
+
 // Chame a função para verificar a seção visível ao recarregar a página
 window.addEventListener('load', checkVisibleSectionOnLoad);
+
+// Função para verificar a seção visível ao rolar a página com o botão do meio do mouse "scroll"
+function checkVisibleSectionOnMouseScroll() {
+    const yOffset = window.innerWidth > MOBILE_BREAKPOINT ? SCROLL_OFFSET : MOBILE_SCROLL_OFFSET; // Ajusta yOffset para dispositivos não móveis
+    let targetSectionIndex = -1;
+
+    sections.forEach((section, index) => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top + yOffset <= window.innerHeight / 2 && rect.bottom + yOffset >= window.innerHeight / 2) {
+            targetSectionIndex = index;
+        }
+    });
+
+    if (targetSectionIndex !== -1) {
+        menuItems.forEach((menuItem) => {
+            menuItem.classList.remove("active");
+        });
+
+        menuItems[targetSectionIndex].classList.add("active");
+    }
+}
+
+// Adiciona um event listener para o evento de rolagem do mouse
+window.addEventListener('wheel', (event) => {
+    // Chama a função para verificar a seção visível ao rolar com o botão do meio do mouse
+    checkVisibleSectionOnMouseScroll();
+});
+
+// Adiciona um event listener para o evento de rolagem da janela
+window.addEventListener('scroll', () => {
+    checkVisibleSectionOnMouseScroll();
+});
