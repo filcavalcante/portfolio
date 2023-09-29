@@ -347,3 +347,42 @@ window.addEventListener('wheel', (event) => {
 window.addEventListener('scroll', () => {
     checkVisibleSectionOnMouseScroll();
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    var cards = document.querySelectorAll(".card-projects");
+    var showMoreButton = document.getElementById("showMoreButton");
+    var isExpanded = true; // Inicie como true
+  
+    function toggleCardVisibility() {
+      // Verifique se os cards estão expandidos ou não
+      if (!isExpanded) {
+        // Se não estiverem expandidos, mostre todos os cards
+        cards.forEach(function(card) {
+          card.classList.remove("hidden");
+        });
+        showMoreButton.textContent = "Ver menos";
+      } else {
+        // Se já estiverem expandidos, oculte todos os cards, exceto os dois primeiros
+        for (var i = 2; i < cards.length; i++) {
+          cards[i].classList.add("hidden");
+        }
+        showMoreButton.textContent = "Ver mais";
+
+        // Role a tela para o elemento com id 'projetos'
+        var projetosElement = document.getElementById('projetos');
+        if (projetosElement) {
+          projetosElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+      
+      // Inverta o estado dos cards
+      isExpanded = !isExpanded;
+    }
+  
+    showMoreButton.addEventListener("click", function() {
+      toggleCardVisibility();
+    });
+  
+    // Chame a função inicialmente para mostrar apenas os dois primeiros cards
+    toggleCardVisibility();
+});

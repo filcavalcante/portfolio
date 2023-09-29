@@ -64,6 +64,6 @@ p {
     margin-bottom: 3rem;
 }
 
-a:-webkit-any-link {
+li a:-webkit-any-link {
     color: var(--purple);
 }

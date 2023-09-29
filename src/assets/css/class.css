@@ -88,49 +88,8 @@
     min-height: 100vh;
 }
 
-.grid-one-content {
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: center;
-    min-height: 100vh;
-}
-
 .grid-main-heading {
-    margin-bottom: 1rem;
-}
-
-.grid-description {
-    padding-bottom: 2rem;
-    text-align: center;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--gap);
-    counter-reset: grid-counter;
-}
-
-.grid h3 {
-    position: relative;
-    font-size: 3rem;
-    padding-left: 5rem;
-    padding-bottom: 2rem;
-}
-
-.gallery-img {
-    width: 100%;
-    max-width: 36rem;
-    max-height: 36rem;
-    overflow: hidden;
-}
-
-.gallery-img img {
-    transition: all 300ms ease-in-out;
-}
-
-.gallery-img img:hover {
-    transform: translate(-3%, 3%) scale(1.2) rotate(5deg);
+    margin-bottom: 12rem;
 }
 
 .contact-form {
