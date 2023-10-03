@@ -150,6 +150,10 @@
 
 @media screen and (max-width: 768px) {
 
+    :root {
+        --gap: 2rem;
+    }
+
     .main-content .grid-skills {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -203,6 +207,11 @@
 
 @media screen and (max-width: 600px) {
 
+    #projects-grid-mobile .project-button,
+    .project-code-button {
+        margin-right: 1rem;
+    }
+
     .main-content .grid-skills {
         grid-template-columns: 1fr;
     }
@@ -239,6 +248,7 @@
 }
 
 @media screen and (max-width: 500px) {
+
     .form-grid .first-line #telefone {
         width: 60%;
     }
@@ -248,8 +258,62 @@
     }
 }
 
+@media screen and (max-width: 478px) {
+
+    .projects-content p {
+        font-size: 1.5rem;
+    }
+
+    .card-projects .projects-title {
+        font-size: 2.2rem;
+    }
+}
+
 @media screen and (max-width: 400px) {
+
     .form-grid .first-line #telefone {
         width: 100%;
+    }
+}
+
+@media screen and (max-width: 390px) {
+
+    .projects-content p {
+        font-size: 1.3rem;
+    }
+
+    .card-projects .projects-title {
+        font-size: 2rem;
+    }
+
+    #projects-grid-mobile .project-button,
+    .project-code-button {
+        width: 50%;
+    }
+
+    #projects-grid-mobile .align-button .project-button,
+    .align-button .project-code-button  {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 350px) {
+
+    .projects-content p {
+        font-size: 1rem;
+    }
+
+    .card-projects .projects-title {
+        font-size: 1.5rem;
+    }
+
+    #projects-grid-mobile .project-button,
+    .project-code-button {
+        width: 40%;
+    }
+
+    #projects-grid-mobile .align-button .project-button,
+    .align-button .project-code-button  {
+        font-size: 1rem;
     }
 }
