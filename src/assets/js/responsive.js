@@ -19,12 +19,12 @@ function scrollToElement(elementId) {
         const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
         window.scrollTo({ top: y, behavior: 'smooth' });
 
-        // Atualize a seção ativa manualmente
+        // Atualiza a seção ativa manualmente
         sections.forEach((section, index) => {
             if (section.id === elementId) {
                 sections.forEach((s) => s.classList.remove('active-section'));
                 section.classList.add('active-section');
-                activeSectionIndex = index; // Atualize o activeSectionIndex com o índice da nova seção
+                activeSectionIndex = index; // Atualiza o activeSectionIndex com o índice da nova seção
                 checkRolldropButton();
             }
         });
@@ -59,7 +59,7 @@ function scrollToNextSection() {
         const currentSection = sections[activeSectionIndex];
         let nextSection = sections[activeSectionIndex + 1];
 
-        // Verifique se o próximo elemento é realmente uma seção e se está abaixo do atual
+        // Verifica se o próximo elemento é realmente uma seção e se está abaixo do atual
         while (nextSection && nextSection.tagName !== 'SECTION') {
             nextSection = sections[++activeSectionIndex];
         }
@@ -69,7 +69,7 @@ function scrollToNextSection() {
             const currentSectionRect = currentSection.getBoundingClientRect();
             const nextSectionRect = nextSection.getBoundingClientRect();
 
-            // Verifique se a próxima seção está abaixo da atual ou na mesma posição vertical
+            // Verifica se a próxima seção está abaixo da atual ou na mesma posição vertical
             if (nextSectionRect.top >= currentSectionRect.bottom || nextSectionRect.bottom >= currentSectionRect.bottom) {
                 isRolldropScrolling = true;
                 currentSection.classList.remove('active-section');
@@ -83,10 +83,10 @@ function scrollToNextSection() {
                 }, 100);
             }
         } else {
-            // Impedir que o botão funcione na última seção
+            // Impede que o botão funcione na última seção
             rolldropButton.disabled = true;
 
-            // Reiniciar o botão após um pequeno atraso (1 segundo neste exemplo)
+            // Reinicia o botão após um pequeno atraso
             setTimeout(() => {
                 activeSectionIndex = 0;
                 sections.forEach((s) => s.classList.remove('active-section'));
@@ -95,12 +95,12 @@ function scrollToNextSection() {
             }, 100);
         }
 
-        // Remova a classe "active" de todos os itens do menu
+        // Remove a classe "active" de todos os itens do menu
         menuItems.forEach((menuItem) => {
             menuItem.classList.remove("active");
         });
 
-        // Adicione a classe "active" apenas ao item de menu correspondente à seção atual
+        // Adiciona a classe "active" apenas ao item de menu correspondente à seção atual
         menuItems[activeSectionIndex].classList.add("active");
     }
 }
@@ -147,12 +147,12 @@ logoLink.addEventListener('click', function (event) {
     event.preventDefault();
     scrollToElement('home');
 
-    // Remova a classe "active" de todos os itens do menu
+    // Remove a classe "active" de todos os itens do menu
     menuItems.forEach((menuItem) => {
         menuItem.classList.remove('active');
     });
 
-    // Adicione a classe "active" ao item de menu "Home"
+    // Adiciona a classe "active" ao item de menu "Home"
     menuItems[0].classList.add('active');
 });
 
@@ -170,7 +170,7 @@ menuLinks.forEach((link) => {
         if (targetSection) {
             const targetIndex = Array.from(sections).indexOf(targetSection);
 
-            // Verifique se o destino é diferente do ativo para evitar redirecionamentos para a mesma seção
+            // Verifica se o destino é diferente do ativo para evitar redirecionamentos para a mesma seção
             if (targetIndex !== activeSectionIndex) {
                 sections.forEach((s) => s.classList.remove('active-section'));
                 targetSection.classList.add('active-section');
@@ -211,7 +211,7 @@ window.addEventListener('scroll', () => {
             }
         });
 
-        // Verifique a exibição do botão "Back-to-Top"
+        // Verifica a exibição do botão "Back-to-Top"
         if (sections[activeSectionIndex].id === 'home') {
             backToTopLink.style.display = 'none'; // Oculta o botão na seção "Home"
         } else {
@@ -257,11 +257,18 @@ function scrollToHomeOnLoad() {
     const homeSection = document.getElementById('home');
     if (homeSection) {
         window.scrollTo({ top: homeSection.offsetTop -65, behavior: 'smooth'});
+    }   
+
+    // Configura o botão "back-to-top" com base na seção ativa
+    if (homeSection === sections[activeSectionIndex]) {
+        backToTopLink.style.display = 'none'; // Oculta o botão na seção "Home"
+    } else {
+        backToTopLink.style.display = 'block'; // Exibe o botão em outras seções
     }
 }
 
-// Adicione um event listener para o evento 'load' e chame a função para rolar para a seção #home
-window.addEventListener("load", function() {
+// Adiciona um event listener para o evento 'load' e chame a função para rolar para a seção #home
+window.addEventListener("load", function () {
     scrollToHomeOnLoad();
 });
 
@@ -303,28 +310,28 @@ document.addEventListener("DOMContentLoaded", function() {
     var isExpanded = true; // Inicie como true
   
     function toggleCardVisibility() {
-      // Verifique se os cards estão expandidos ou não
+      // Verifica se os cards estão expandidos ou não
       if (!isExpanded) {
-        // Se não estiverem expandidos, mostre todos os cards
+        // Se não estiverem expandidos, mostra todos os cards
         cards.forEach(function(card) {
           card.classList.remove("hidden");
         });
         showMoreButton.textContent = "Ver menos";
       } else {
-        // Se já estiverem expandidos, oculte todos os cards, exceto os dois primeiros
+        // Se já estiverem expandidos, oculta todos os cards, exceto os dois primeiros
         for (var i = 2; i < cards.length; i++) {
           cards[i].classList.add("hidden");
         }
         showMoreButton.textContent = "Ver mais";
 
-        // Role a tela para o elemento com id 'projetos'
+        // Rola a tela para o elemento com id 'projetos'
         var projetosElement = document.getElementById('projetos');
         if (projetosElement) {
           projetosElement.scrollIntoView({ behavior: 'smooth' });
         }
       }
       
-      // Inverta o estado dos cards
+      // Inverte o estado dos cards
       isExpanded = !isExpanded;
     }
   
@@ -332,6 +339,26 @@ document.addEventListener("DOMContentLoaded", function() {
       toggleCardVisibility();
     });
   
-    // Chame a função inicialmente para mostrar apenas os dois primeiros cards
+    // Chama a função inicialmente para mostrar apenas os dois primeiros cards
     toggleCardVisibility();
 });
+
+// Função para lidar com a ocultação do botão rolldrop quando o menu toggle for acionado
+function handleMenuToggle() {
+    const checkbox = document.getElementById('close-menu');
+    const rolldropButton = document.getElementById('rolldrop-button');
+
+    if (checkbox && rolldropButton) {
+        checkbox.addEventListener('change', (event) => {
+            if (event.target.checked) {
+                rolldropButton.style.display = 'none';
+            } else {
+                // Verifica se o botão deve ser exibido com base na seção ativa
+                checkRolldropButton();
+            }
+        });
+    }
+}
+
+// Chama a função para lidar com o menu toggle
+handleMenuToggle();

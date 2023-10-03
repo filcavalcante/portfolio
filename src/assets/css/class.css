@@ -126,3 +126,12 @@
     position: relative;
     top: 0.5rem;
 }
+
+.social-media {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+    position: relative;
+}
