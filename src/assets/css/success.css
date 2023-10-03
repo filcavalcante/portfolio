@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Roboto:ital,wght@0,400;0,700;1,700&family=Ubuntu:ital,wght@0,300;0,700;1,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #332F2E;
+    --white-color: white;
+    --purple: #800080;
+    --gap: 3rem;
+}
+
+html,
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 62.5%;
+    height: 100%;
+}
+
+body {
+    background-color: var(--white-color);
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container {
+    text-align: center;
+}
+
+.msgSucesso {
+    margin: 2rem;
+}
+
+#contador {
+    margin-top: 20rem;
+}
+
+.contador-vermelho {
+    color: red;
+}
