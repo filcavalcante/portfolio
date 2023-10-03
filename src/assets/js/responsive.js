@@ -252,69 +252,18 @@ backToTopLink.addEventListener('click', function (event) {
     menuItems[0].classList.add('active'); // O primeiro link é o link "Home"
 });
 
-// Função para verificar a seção visível ao recarregar a página
-function checkVisibleSectionOnLoad() {
-    const yOffset = SCROLL_OFFSET;
-    let targetSectionIndex = -1;
-
-    sections.forEach((section, index) => {
-        const rect = section.getBoundingClientRect();
-        if (rect.top + yOffset <= 0 && rect.bottom + yOffset >= 0) {
-            targetSectionIndex = index;
-        }
-    });
-
-    if (targetSectionIndex !== -1) {
-        // Verifique se a seção visível ao carregar é a "home" e oculte o botão "back-to-top"
-        if (sections[targetSectionIndex].id === 'home') {
-            backToTopLink.style.display = 'none';
-        } else {
-            backToTopLink.style.display = 'block';
-        }
-
-        menuItems.forEach((menuItem, index) => {
-            menuItem.classList.remove("active");
-        });
-
-        menuItems[targetSectionIndex].classList.add("active");
+// Função para rolar para a seção #home ao carregar a página
+function scrollToHomeOnLoad() {
+    const homeSection = document.getElementById('home');
+    if (homeSection) {
+        window.scrollTo({ top: homeSection.offsetTop -65, behavior: 'smooth'});
     }
 }
 
-// Função para verificar a seção visível ao rolar a página
-function checkVisibleSectionOnScroll() {
-    const yOffset = SCROLL_OFFSET;
-    let targetSectionIndex = -1;
-
-    sections.forEach((section, index) => {
-        const rect = section.getBoundingClientRect();
-        if (rect.top + yOffset <= 0 && rect.bottom + yOffset >= 0) {
-            targetSectionIndex = index;
-        }
-    });
-
-    if (targetSectionIndex !== -1) {
-        menuItems.forEach((menuItem, index) => {
-            menuItem.classList.remove("active");
-        });
-
-        menuItems[targetSectionIndex].classList.add("active");
-
-        // Verifique se a seção visível ao rolar é diferente de "home" e exiba o botão "back-to-top"
-        if (sections[targetSectionIndex].id !== 'home') {
-            backToTopLink.style.display = 'block';
-        } else {
-            backToTopLink.style.display = 'none';
-        }
-    }
-}
-
-// Adicione um event listener para o evento de rolagem da janela
-window.addEventListener('scroll', () => {
-    checkVisibleSectionOnScroll();
+// Adicione um event listener para o evento 'load' e chame a função para rolar para a seção #home
+window.addEventListener("load", function() {
+    scrollToHomeOnLoad();
 });
-
-// Chame a função para verificar a seção visível ao recarregar a página
-window.addEventListener('load', checkVisibleSectionOnLoad);
 
 // Função para verificar a seção visível ao rolar a página com o botão do meio do mouse "scroll"
 function checkVisibleSectionOnMouseScroll() {

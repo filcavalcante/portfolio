@@ -69,65 +69,8 @@
     border-radius: 15rem;
 }
 
-.contact-text-content {
-    text-align: center;
-    padding-bottom: 5rem;
-}
-
-.contact-bg {
-    background-color: #ebdddd;
-    /* background-color: whitesmoke; */
-}
-
-.top3-content {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    text-align: center;
-    max-width: 64rem;
-    min-height: 100vh;
-}
-
 .grid-main-heading {
-    margin-bottom: 12rem;
-}
-
-.contact-form {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.contact-form {
-    margin-bottom: 20px; /* Adicione um espaço abaixo da div */
-}
-
-.form-group {
-    flex-basis: calc(50% - 1rem); /* Tamanho de 50% com espaço entre eles */
-}
-
-.form-group:last-child {
-    flex-basis: 100%; /* Ocupa a linha inteira na segunda linha */
-    margin-right: 0; /* Remova a margem à direita */
-}
-
-.form-group.full-width {
-    flex-basis: 100%;
-    height: 100%; /* Defina a altura para 100% */
-}
-
-.form-group.full-width textarea {
-    height: 100%; /* Defina a altura para 100% para ocupar a linha inteira */
-    margin-right: 0; /* Remova a margem à direita */
-    resize: none;
-}
-
-.contact-form .form-grid {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    border: none;
-    gap: 2rem;
+    margin-bottom: 10rem;
 }
 
 /* Footer */
@@ -173,4 +116,13 @@
 
 .skills-bg {
     background-color: #bdccdb;
+}
+
+#footer {
+    font-size: 2rem;
+}
+
+.footer span img {
+    position: relative;
+    top: 0.5rem;
 }

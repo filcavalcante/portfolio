@@ -89,7 +89,7 @@
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 5rem;
+  gap: 3rem;
 }
 
 .projects-description {
@@ -99,6 +99,7 @@
 
 /* Botão Ver projeto */
 .project-button {
+  font-size: 2rem;
   display: flex;
   position: relative;
   overflow: hidden;
@@ -206,7 +207,7 @@
   overflow: hidden;
   align-items: center;
   height: 3rem;
-  margin-top: 2rem;
+  margin-top: 3rem;
   padding: 0 1rem;
   border-radius: 1.5rem;
   background: #fff;
