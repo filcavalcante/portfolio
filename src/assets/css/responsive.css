@@ -267,6 +267,14 @@
     .card-projects .projects-title {
         font-size: 2.2rem;
     }
+
+    .skills-content .card-title {
+        font-size: 2.5rem;
+    }
+
+    .card-skills .skills-content .card-description {
+        font-size: 1.5rem;
+    }
 }
 
 @media screen and (max-width: 400px) {

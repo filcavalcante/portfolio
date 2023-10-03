@@ -49,17 +49,28 @@
 }
 
 .card-description {
-    margin: 0;
     padding-top: 1rem;
     font-size: 1.6rem;
     color: var(--primary-color);
     font-weight: 300;
 }
 
+.card-description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 0;
+}
+
 .card-title {
-    margin: 0;
-    padding-top: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
     color: var(--primary-color);
+    margin-bottom: 1rem;
 }
 
 .card-skills:hover img {
@@ -67,7 +78,7 @@
 }
 
 .skills-content {
-    margin: 10px 0 0;
+    margin: 1rem 0 0;
     font-size: 1.4rem;
     color: #777;
     line-height: 1.4;
